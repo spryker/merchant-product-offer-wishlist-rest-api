@@ -13,8 +13,6 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
  * @method \Spryker\Zed\MerchantProductOfferWishlistRestApi\Business\MerchantProductOfferWishlistRestApiBusinessFactory getFactory()
- * @method \Spryker\Zed\MerchantProductOfferWishlistRestApi\Persistence\MerchantProductOfferWishlistRestApiRepositoryInterface getRepository()
- * @method \Spryker\Zed\MerchantProductOfferWishlistRestApi\Persistence\MerchantProductOfferWishlistRestApiEntityManagerInterface getEntityManager()
  */
 class MerchantProductOfferWishlistRestApiFacade extends AbstractFacade implements MerchantProductOfferWishlistRestApiFacadeInterface
 {

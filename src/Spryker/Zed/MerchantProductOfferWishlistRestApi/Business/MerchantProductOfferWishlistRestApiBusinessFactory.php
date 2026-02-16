@@ -15,8 +15,6 @@ use Spryker\Zed\MerchantProductOfferWishlistRestApi\MerchantProductOfferWishlist
 
 /**
  * @method \Spryker\Zed\MerchantProductOfferWishlistRestApi\MerchantProductOfferWishlistRestApiConfig getConfig()
- * @method \Spryker\Zed\MerchantProductOfferWishlistRestApi\Persistence\MerchantProductOfferWishlistRestApiEntityManagerInterface getEntityManager()
- * @method \Spryker\Zed\MerchantProductOfferWishlistRestApi\Persistence\MerchantProductOfferWishlistRestApiRepositoryInterface getRepository()
  */
 class MerchantProductOfferWishlistRestApiBusinessFactory extends AbstractBusinessFactory
 {
