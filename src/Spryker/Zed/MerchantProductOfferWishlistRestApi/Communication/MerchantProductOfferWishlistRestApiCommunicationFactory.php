@@ -17,9 +17,6 @@ use Spryker\Zed\MerchantProductOfferWishlistRestApi\Communication\Reader\Merchan
  */
 class MerchantProductOfferWishlistRestApiCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\MerchantProductOfferWishlistRestApi\Communication\Reader\MerchantProductOfferWishlistRestApiReaderInterface
-     */
     public function createMerchantProductOfferWishlistRestApiReader(): MerchantProductOfferWishlistRestApiReaderInterface
     {
         return new MerchantProductOfferWishlistRestApiReader();

@@ -13,9 +13,6 @@ use Spryker\Glue\MerchantProductOfferWishlistRestApi\Processor\Mapper\Wishlist\M
 
 class MerchantProductOfferWishlistRestApiFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Glue\MerchantProductOfferWishlistRestApi\Processor\Mapper\Wishlist\MerchantProductOfferWishlistRestApiMapperInterface
-     */
     public function createMerchantProductOfferWishlistRestApiMapper(): MerchantProductOfferWishlistRestApiMapperInterface
     {
         return new MerchantProductOfferWishlistRestApiMapper();

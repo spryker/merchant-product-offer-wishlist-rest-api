@@ -15,11 +15,6 @@ use Spryker\Glue\Kernel\Container;
  */
 class MerchantProductOfferWishlistRestApiDependencyProvider extends AbstractBundleDependencyProvider
 {
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = parent::provideDependencies($container);

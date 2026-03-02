@@ -34,9 +34,6 @@ class MerchantProductOfferWishlistRestApiFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testDeleteWishlistItemSuccess(): void
     {
         // Arrange
@@ -84,9 +81,6 @@ class MerchantProductOfferWishlistRestApiFacadeTest extends Unit
         $this->assertSame($wishlistItemCount, $expectedWishlistItemCount);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteWishlistItemWithWrongSkuNotDeleted(): void
     {
         // Arrange
@@ -134,9 +128,6 @@ class MerchantProductOfferWishlistRestApiFacadeTest extends Unit
         $this->assertSame($wishlistItemCount + 1, $expectedWishlistItemCount);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteWishlistItemWithWrongProductOfferReferenceNotDeleted(): void
     {
         // Arrange
@@ -184,9 +175,6 @@ class MerchantProductOfferWishlistRestApiFacadeTest extends Unit
         $this->assertSame($wishlistItemCount + 1, $expectedWishlistItemCount);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteWishlistItemWithoutProductOfferSuccess(): void
     {
         // Arrange
@@ -228,9 +216,6 @@ class MerchantProductOfferWishlistRestApiFacadeTest extends Unit
         $this->assertSame($wishlistItemCount, $expectedWishlistItemCount);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteWishlistItemWithoutProductOfferWithWrongSkuNotDeleted(): void
     {
         // Arrange

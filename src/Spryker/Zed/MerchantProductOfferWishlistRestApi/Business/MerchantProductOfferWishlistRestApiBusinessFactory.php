@@ -18,9 +18,6 @@ use Spryker\Zed\MerchantProductOfferWishlistRestApi\MerchantProductOfferWishlist
  */
 class MerchantProductOfferWishlistRestApiBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\MerchantProductOfferWishlistRestApi\Business\Deleter\MerchantProductOfferWishlistRestApiDeleterInterface
-     */
     public function createMerchantProductOfferWishlistRestApiDeleter(): MerchantProductOfferWishlistRestApiDeleterInterface
     {
         return new MerchantProductOfferWishlistRestApiDeleter(
@@ -28,9 +25,6 @@ class MerchantProductOfferWishlistRestApiBusinessFactory extends AbstractBusines
         );
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantProductOfferWishlistRestApi\Dependency\Facade\MerchantProductOfferWishlistRestApiToWishlistFacadeInterface
-     */
     public function getWishlistFacade(): MerchantProductOfferWishlistRestApiToWishlistFacadeInterface
     {
         return $this->getProvidedDependency(MerchantProductOfferWishlistRestApiDependencyProvider::FACADE_WISHLIST);

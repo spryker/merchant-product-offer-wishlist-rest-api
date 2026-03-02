@@ -18,9 +18,6 @@ class MerchantProductOfferWishlistRestApiDeleter implements MerchantProductOffer
      */
     protected $wishlistFacade;
 
-    /**
-     * @param \Spryker\Zed\MerchantProductOfferWishlistRestApi\Dependency\Facade\MerchantProductOfferWishlistRestApiToWishlistFacadeInterface $wishlistFacade
-     */
     public function __construct(
         MerchantProductOfferWishlistRestApiToWishlistFacadeInterface $wishlistFacade
     ) {

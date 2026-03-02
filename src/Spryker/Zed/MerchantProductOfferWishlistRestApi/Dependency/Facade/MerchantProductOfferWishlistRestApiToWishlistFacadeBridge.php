@@ -24,11 +24,6 @@ class MerchantProductOfferWishlistRestApiToWishlistFacadeBridge implements Merch
         $this->wishlistFacade = $wishlistFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\WishlistItemTransfer $wishlistItemTransfer
-     *
-     * @return \Generated\Shared\Transfer\WishlistItemTransfer
-     */
     public function removeItem(WishlistItemTransfer $wishlistItemTransfer): WishlistItemTransfer
     {
         return $this->wishlistFacade->removeItem($wishlistItemTransfer);
