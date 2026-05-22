@@ -1,0 +1,22 @@
+resource:
+    name: WishlistItems
+    shortName: wishlist-items
+
+    properties:
+        productOfferReference:
+            type: string
+            writable: true
+            readable: true
+            required: false
+            description: 'A unique reference identifier for a specific product offer from a merchant.'
+            openapiContext:
+                example: 'offer89'
+
+        merchantReference:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'A unique reference identifier for a merchant.'
+            openapiContext:
+                example: 'MER000001'
