@@ -8,7 +8,8 @@ resource:
             writable: true
             readable: true
             required: false
-            description: 'A unique reference identifier for a specific product offer from a merchant.'
+            responseOptional: true
+            description: 'A unique reference identifier for a specific product offer from a merchant. Answered only for an item added against a product offer; an item added by SKU alone carries none.'
             openapiContext:
                 example: 'offer89'
 
@@ -17,6 +18,7 @@ resource:
             writable: false
             readable: true
             required: false
-            description: 'A unique reference identifier for a merchant.'
+            responseOptional: true
+            description: 'A unique reference identifier for a merchant. Answered alongside `productOfferReference`, and absent with it for an item added by SKU alone.'
             openapiContext:
                 example: 'MER000001'
