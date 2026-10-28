@@ -255,4 +255,70 @@ class MerchantProductOfferWishlistRestApiFacadeTest extends Unit
         // Assert
         $this->assertSame($wishlistItemCount + 1, $expectedWishlistItemCount);
     }
+
+    public function testGivenAProductOfferWishlistItemWhenUpdateByItsIdentifierThenTheItemIsUpdated(): void
+    {
+        // Arrange
+        $wishlistItemTransfer = $this->haveProductOfferWishlistItem();
+        $wishlistItemRequestTransfer = (new WishlistItemRequestTransfer())
+            ->setIdCustomer($wishlistItemTransfer->getFkCustomer())
+            ->setUuid($wishlistItemTransfer->getSku() . '_' . $wishlistItemTransfer->getProductOfferReference())
+            ->setProductOfferReference($wishlistItemTransfer->getProductOfferReference());
+
+        // Act
+        $wishlistItemResponseTransfer = $this->tester->getFacade()->updateWishlistItem(
+            $wishlistItemRequestTransfer,
+            new ArrayObject([$wishlistItemTransfer]),
+        );
+
+        // Assert
+        $this->assertTrue($wishlistItemResponseTransfer->getIsSuccess());
+        $this->assertSame($wishlistItemTransfer->getSku(), $wishlistItemResponseTransfer->getWishlistItemOrFail()->getSku());
+        $this->assertSame(
+            $wishlistItemTransfer->getProductOfferReference(),
+            $wishlistItemResponseTransfer->getWishlistItemOrFail()->getProductOfferReference(),
+        );
+    }
+
+    public function testGivenAProductOfferWishlistItemWhenUpdateByItsSkuAloneThenNothingIsUpdated(): void
+    {
+        // Arrange
+        $wishlistItemTransfer = $this->haveProductOfferWishlistItem();
+        $wishlistItemRequestTransfer = (new WishlistItemRequestTransfer())
+            ->setIdCustomer($wishlistItemTransfer->getFkCustomer())
+            ->setUuid($wishlistItemTransfer->getSku());
+
+        // Act
+        $wishlistItemResponseTransfer = $this->tester->getFacade()->updateWishlistItem(
+            $wishlistItemRequestTransfer,
+            new ArrayObject([$wishlistItemTransfer]),
+        );
+
+        // Assert
+        $this->assertFalse($wishlistItemResponseTransfer->getIsSuccess());
+    }
+
+    protected function haveProductOfferWishlistItem(): WishlistItemTransfer
+    {
+        $customerTransfer = $this->tester->haveCustomer();
+        $productConcreteTransfer = $this->tester->haveProduct([
+            ProductConcreteTransfer::IS_ACTIVE => true,
+        ]);
+        $productOfferTransfer = $this->tester->haveProductOffer([
+            ProductOfferTransfer::MERCHANT_REFERENCE => $this->tester->haveMerchant()->getMerchantReference(),
+            ProductOfferTransfer::CONCRETE_SKU => $productConcreteTransfer->getSku(),
+            ProductOfferTransfer::ID_PRODUCT_CONCRETE => $productConcreteTransfer->getIdProductConcrete(),
+        ]);
+        $wishlistTransfer = $this->tester->haveWishlist([
+            WishlistTransfer::FK_CUSTOMER => $customerTransfer->getIdCustomer(),
+        ]);
+
+        return $this->tester->haveItemInWishlist([
+            WishlistItemTransfer::FK_WISHLIST => $wishlistTransfer->getIdWishlist(),
+            WishlistItemTransfer::FK_CUSTOMER => $customerTransfer->getIdCustomer(),
+            WishlistItemTransfer::SKU => $productOfferTransfer->getConcreteSku(),
+            WishlistItemTransfer::WISHLIST_NAME => $wishlistTransfer->getName(),
+            WishlistItemTransfer::PRODUCT_OFFER_REFERENCE => $productOfferTransfer->getProductOfferReference(),
+        ]);
+    }
 }

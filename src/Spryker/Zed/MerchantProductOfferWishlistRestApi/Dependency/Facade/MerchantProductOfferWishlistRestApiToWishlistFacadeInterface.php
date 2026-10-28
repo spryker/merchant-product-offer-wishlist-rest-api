@@ -7,9 +7,12 @@
 
 namespace Spryker\Zed\MerchantProductOfferWishlistRestApi\Dependency\Facade;
 
+use Generated\Shared\Transfer\WishlistItemResponseTransfer;
 use Generated\Shared\Transfer\WishlistItemTransfer;
 
 interface MerchantProductOfferWishlistRestApiToWishlistFacadeInterface
 {
     public function removeItem(WishlistItemTransfer $wishlistItemTransfer): WishlistItemTransfer;
+
+    public function updateWishlistItem(WishlistItemTransfer $wishlistItemTransfer): WishlistItemResponseTransfer;
 }

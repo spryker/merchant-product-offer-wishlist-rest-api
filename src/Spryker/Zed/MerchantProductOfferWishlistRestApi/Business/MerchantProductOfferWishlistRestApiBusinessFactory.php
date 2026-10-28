@@ -10,6 +10,8 @@ namespace Spryker\Zed\MerchantProductOfferWishlistRestApi\Business;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 use Spryker\Zed\MerchantProductOfferWishlistRestApi\Business\Deleter\MerchantProductOfferWishlistRestApiDeleter;
 use Spryker\Zed\MerchantProductOfferWishlistRestApi\Business\Deleter\MerchantProductOfferWishlistRestApiDeleterInterface;
+use Spryker\Zed\MerchantProductOfferWishlistRestApi\Business\Updater\MerchantProductOfferWishlistRestApiUpdater;
+use Spryker\Zed\MerchantProductOfferWishlistRestApi\Business\Updater\MerchantProductOfferWishlistRestApiUpdaterInterface;
 use Spryker\Zed\MerchantProductOfferWishlistRestApi\Dependency\Facade\MerchantProductOfferWishlistRestApiToWishlistFacadeInterface;
 use Spryker\Zed\MerchantProductOfferWishlistRestApi\MerchantProductOfferWishlistRestApiDependencyProvider;
 
@@ -21,6 +23,13 @@ class MerchantProductOfferWishlistRestApiBusinessFactory extends AbstractBusines
     public function createMerchantProductOfferWishlistRestApiDeleter(): MerchantProductOfferWishlistRestApiDeleterInterface
     {
         return new MerchantProductOfferWishlistRestApiDeleter(
+            $this->getWishlistFacade(),
+        );
+    }
+
+    public function createMerchantProductOfferWishlistRestApiUpdater(): MerchantProductOfferWishlistRestApiUpdaterInterface
+    {
+        return new MerchantProductOfferWishlistRestApiUpdater(
             $this->getWishlistFacade(),
         );
     }

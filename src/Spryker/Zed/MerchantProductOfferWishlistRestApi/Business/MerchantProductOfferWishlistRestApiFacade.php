@@ -9,6 +9,7 @@ namespace Spryker\Zed\MerchantProductOfferWishlistRestApi\Business;
 
 use ArrayObject;
 use Generated\Shared\Transfer\WishlistItemRequestTransfer;
+use Generated\Shared\Transfer\WishlistItemResponseTransfer;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
@@ -54,5 +55,24 @@ class MerchantProductOfferWishlistRestApiFacade extends AbstractFacade implement
             $wishlistItemRequestTransfer,
             $wishlistItemTransfers,
         );
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\WishlistItemRequestTransfer $wishlistItemRequestTransfer
+     * @param \ArrayObject<int, \Generated\Shared\Transfer\WishlistItemTransfer> $wishlistItemTransfers
+     *
+     * @return \Generated\Shared\Transfer\WishlistItemResponseTransfer
+     */
+    public function updateWishlistItem(
+        WishlistItemRequestTransfer $wishlistItemRequestTransfer,
+        ArrayObject $wishlistItemTransfers
+    ): WishlistItemResponseTransfer {
+        return $this->getFactory()
+            ->createMerchantProductOfferWishlistRestApiUpdater()
+            ->updateWishlistItem($wishlistItemRequestTransfer, $wishlistItemTransfers);
     }
 }

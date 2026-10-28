@@ -4,6 +4,7 @@
     <transfer name="WishlistItemRequest">
         <property name="productOfferReference" type="string" description="A unique reference identifier for a specific product offer from a merchant."/>
         <property name="uuid" type="string" description="A Universally Unique Identifier for an entity."/>
+        <property name="sku" type="string" description="The Stock Keeping Unit, a unique identifier for a concrete product."/>
     </transfer>
 
     <transfer name="RestWishlistItemsAttributes">
@@ -15,6 +16,10 @@
     <transfer name="WishlistItem">
         <property name="sku" type="string" description="The Stock Keeping Unit, a unique identifier for a concrete product."/>
         <property name="productOfferReference" type="string" description="A unique reference identifier for a specific product offer from a merchant."/>
+    </transfer>
+
+    <transfer name="WishlistItemResponse">
+        <property name="isSuccess" type="bool" description="A boolean flag indicating if an operation was successful."/>
     </transfer>
 
 </transfers>
